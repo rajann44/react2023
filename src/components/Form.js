@@ -22,7 +22,7 @@ function Form(props) {
   const [checkIfPasswordInvalid, setCheckIfPasswordInvalid] = useState(false);
 
   return (
-    <div className='container'>
+    <div className='container'> <h3>Form with basic validation</h3>
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput1" className="form-label">
           Email address:
@@ -61,7 +61,7 @@ function Form(props) {
         Register
       </button>
       </div>
-      </div>
+</div>
   );
 }
 
