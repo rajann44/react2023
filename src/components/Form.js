@@ -1,47 +1,64 @@
 import { useState } from 'react'
+import { isInvalidateEmail, isValidPasswordInvalid } from '../utils/basicutil';
 
 function Form(props) {
 
   function clickedOnSubmitButton(){
-    alert(text)
-    settextArea(text)
+    setValidEmail(isInvalidateEmail(textEmail))
+    setCheckIfPasswordInvalid(isValidPasswordInvalid(textPassword))
   }
   
-  const handleOnChange = (event) => {
-    setText(event.target.value);
+  const handleOnEmailChange = (event) => {
+    setTextEmail(event.target.value);
   }
 
-  const [text, setText] = useState(null);
-  const [textArea, settextArea] = useState(null);
+  const handleOnPasswordChange = (event) => {
+    setTextPassword(event.target.value);
+  }
+
+  const [textEmail, setTextEmail] = useState(null);
+  const [textPassword, setTextPassword] = useState(null);
+  const [validEmail, setValidEmail] = useState(false);
+  const [checkIfPasswordInvalid, setCheckIfPasswordInvalid] = useState(false);
 
   return (
     <div className='container'>
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput1" className="form-label">
-          Email address
+          Email address:
+          {validEmail && <p style={{color: "red"}}>Please enter a valid email</p>}
         </label>
         <input
           type="email"
           className="form-control"
+          name ="email"
           id="exampleFormControlInput1"
           placeholder="name@example.com"
-          onChange={handleOnChange}
+          onChange={handleOnEmailChange}
         />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="exampleFormControlTextarea1" className="form-label">
-          Example textarea
+        <div className='my-2'></div>
+        <label  htmlFor="password" className="form-label">
+          Password:
+          {checkIfPasswordInvalid && <p style={{color: "red"}}>
+            The password must be at least 8 characters long.<br />
+            The password must contain at least one uppercase letter ([A-Z]).<br />
+            The password must contain at least one lowercase letter ([a-z]).<br />
+            The password must contain at least one digit (\d).<br />
+            The password must contain at least one special character.<br />
+            </p>}
         </label>
-        <textarea
+        <input
+          type="password"
           className="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-          value={textArea}
-        ></textarea>
+          name ="password"
+          id="password"
+          placeholder="your secert password here"
+          onChange={handleOnPasswordChange}
+        />
       </div>
       <div className="d-grid gap-2 col-6 mx-auto">
       <button className="btn btn-success" type="button" onClick={clickedOnSubmitButton}>
-        Show Alert & Populate Textarea
+        Register
       </button>
       </div>
       </div>

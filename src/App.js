@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <Navbar></Navbar>
-    <Welcome name='Rajan' ></Welcome>
+    <Welcome name='Storage is still TODO' ></Welcome>
     <Form></Form>
     </>
   );

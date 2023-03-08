@@ -1,6 +1,6 @@
 function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary container">
+    <nav className="navbar navbar-expand-lg bg-dark container" data-bs-theme="dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           Navbar
