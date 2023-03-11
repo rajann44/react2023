@@ -4,6 +4,7 @@ import Form from './components/Form';
 import Navbar from './components/Navbar';
 import Weather from './components/Weather';
 import Grid from './components/Grid';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <Form></Form>
     <Weather city="Sirsa"></Weather>*/}
     <Grid></Grid>
+    <Footer></Footer>
     </>
   );
 }

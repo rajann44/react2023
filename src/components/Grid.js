@@ -3,10 +3,10 @@ import Weather from './Weather'
 
 function Grid() {
   return (
-    <div class="container text-center">
-      <div class="row">
-        <div class="col col-md-auto"><Weather city="Sirsa" /></div>
-        <div class="col my-3"><Form></Form></div>
+    <div className="container text-center">
+      <div className="row">
+        <div className="col col-md-auto"><Weather city="Sirsa" /></div>
+        <div className="col my-3"><Form></Form></div>
       </div>
     </div>
   );

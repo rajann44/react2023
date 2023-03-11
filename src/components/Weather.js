@@ -1,15 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Weather(props){
 
     const [weather_news, setWeather_news] = useState(null);
+    const [loglat, setLoglat] = useState([]);
+    const [text, setText] = useState('');
 
-    const getWeatherNews = async () => {
-        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=29.53&longitude=75.03&current_weather=true');
-        var jsonData = await response.json();
-        setWeather_news(jsonData)
-        console.log(weather_news.elevation)
-      };
+    useEffect(() => {
+      console.log(text)
+    });
+
+    const handleOnChange = (event) => {
+      setText(event.target.value)
+    }
+
+    const getLongLat = async () => {
+      const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${text}&limit=1&format=json`);
+      var jsonData = await response.json();
+      setLoglat(jsonData);
+      const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loglat.lat}&longitude=${loglat.lon}&current_weather=true`);
+      var jsonData2 = await response2.json();
+      setWeather_news(jsonData2)
+    }
 
 
       return (
@@ -18,9 +30,13 @@ function Weather(props){
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Sirsa_road.jpg" className="sirsa-image" alt="sirsa city"/>
           <div className="card-body">
           <h4 className="card-title">{props.city} Weather</h4>
+          
+          <div className="input-group mb-3">
+          <input type="text" className="form-control" placeholder="Enter Location" aria-label="Location" aria-describedby="button-addon2" value={text} onChange={handleOnChange}/>
+          <button className="btn btn-outline-secondary" onClick={getLongLat} type="button" id="button-addon2">Button</button>
+          </div>
           <p className="card-text">Current Temprature: {weather_news !== null && weather_news.current_weather.temperature}</p>
           <p className="card-text">Today's Date: {weather_news !== null && weather_news.current_weather.time}</p>
-          <button className="btn btn-success" onClick={getWeatherNews} type="button">Go Weather Info</button>
           </div>
           </div>
         </div>
