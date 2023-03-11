@@ -3,11 +3,17 @@ import { useState, useEffect } from 'react'
 function Weather(props){
 
     const [weather_news, setWeather_news] = useState(null);
-    const [loglat, setLoglat] = useState([]);
     const [text, setText] = useState('');
 
+    const [latitude, setLatitude] = useState('29.583333');
+    const [longitude, setLongitude] = useState('75.083333');
+
+    const [loglat, setLoglat] = useState([]);
+    
+
     useEffect(() => {
-      console.log(text)
+      console.log(text);
+
     });
 
     const handleOnChange = (event) => {
@@ -15,10 +21,14 @@ function Weather(props){
     }
 
     const getLongLat = async () => {
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${text}&limit=1&format=json`);
+      var response = await fetch(`https://nominatim.openstreetmap.org/search?q=${text}&limit=1&format=json`);
       var jsonData = await response.json();
       setLoglat(jsonData);
-      const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loglat.lat}&longitude=${loglat.lon}&current_weather=true`);
+      loglat.map((element)=> {
+        setLatitude(element.lat);
+        setLongitude(element.lon);
+      })
+      var response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
       var jsonData2 = await response2.json();
       setWeather_news(jsonData2)
     }
