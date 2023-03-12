@@ -28,8 +28,8 @@ function Navbar(props) {
             <li><Link className="nav-link" to="/image">
               Slider
             </Link></li>
-            <li><Link className="nav-link" to="/something-2">
-              Something 2
+            <li><Link className="nav-link" to="/quote">
+              Random Quote
             </Link></li>
           </div>
         </div>
