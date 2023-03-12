@@ -25,8 +25,8 @@ function Navbar(props) {
           <li><Link className="nav-link active" aria-current="page" to="/form-news">
               Form News
             </Link></li>
-            <li><Link className="nav-link" to="/something-1">
-              Something 1
+            <li><Link className="nav-link" to="/image">
+              Slider
             </Link></li>
             <li><Link className="nav-link" to="/something-2">
               Something 2
