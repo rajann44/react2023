@@ -1,10 +1,14 @@
+import React from 'react'
+import { Link } from "react-router-dom"
+
+
 function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg bg-dark container" data-bs-theme="dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <li><Link className="navbar-brand" to="/">
           Navbar
-        </a>
+        </Link></li>
         <button
           className="navbar-toggler"
           type="button"
@@ -18,15 +22,15 @@ function Navbar(props) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="/">
-              Home
-            </a>
-            <a className="nav-link" href="/">
-              Features
-            </a>
-            <a className="nav-link" href="/">
-              Pricing
-            </a>
+          <li><Link className="nav-link active" aria-current="page" to="/form-news">
+              Form News
+            </Link></li>
+            <li><Link className="nav-link" to="/something-1">
+              Something 1
+            </Link></li>
+            <li><Link className="nav-link" to="/something-2">
+              Something 2
+            </Link></li>
           </div>
         </div>
         <form className="d-flex" role="search">

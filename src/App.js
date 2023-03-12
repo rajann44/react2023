@@ -5,16 +5,20 @@ import Navbar from './components/Navbar';
 import Weather from './components/Weather';
 import Grid from './components/Grid';
 import Footer from './components/Footer';
+import { Route, Routes } from 'react-router';
 
 function App() {
   return (
     <>
-    <Navbar></Navbar>
     {/*<Welcome name='Storage is still TODO' ></Welcome>
     <Form></Form>
     <Weather city="Sirsa"></Weather>*/}
-    <Grid></Grid>
-    <Footer></Footer>
+    <Navbar/>
+    <Routes>
+        <Route path="/form-news" element={<><Grid/><Footer/></>} />
+        <Route path="/acc" element={<div/>} />
+        <Route path="/" element={<div text="Homepage">HELLO</div>} />
+    </Routes>
     </>
   );
 }

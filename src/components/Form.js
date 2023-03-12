@@ -23,7 +23,7 @@ function Form(props) {
 
   return (
     <div className='container'> <h3>Form with basic validation</h3>
-      <div className="mb-3">
+      <form className="mb-3">
         <label htmlFor="exampleFormControlInput1" className="form-label">
           Email address:
           {validEmail && <p style={{color: "red"}}>Please enter a valid email</p>}
@@ -54,8 +54,9 @@ function Form(props) {
           id="password"
           placeholder="your secert password here"
           onChange={handleOnPasswordChange}
+          autoComplete="on"
         />
-      </div>
+      </form>
       <div className="d-grid gap-2 col-6 mx-auto">
       <button className="btn btn-success" type="button" onClick={clickedOnSubmitButton}>
         Register
