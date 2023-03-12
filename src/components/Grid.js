@@ -5,7 +5,7 @@ function Grid() {
   return (
     <div className="container text-center">
       <div className="row">
-        <div className="col col-md-auto"><Weather city="Sirsa" /></div>
+        <div className="col col-md-auto"><Weather city="Get Any City" /></div>
         <div className="col my-3"><Form></Form></div>
       </div>
     </div>

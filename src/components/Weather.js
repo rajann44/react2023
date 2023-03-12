@@ -13,7 +13,10 @@ function Weather(props){
 
     useEffect(() => {
       console.log(text);
-
+      loglat.map((element)=> {
+        setLatitude(element.lat);
+        setLongitude(element.lon);
+      })
     });
 
     const handleOnChange = (event) => {
@@ -24,10 +27,7 @@ function Weather(props){
       var response = await fetch(`https://nominatim.openstreetmap.org/search?q=${text}&limit=1&format=json`);
       var jsonData = await response.json();
       setLoglat(jsonData);
-      loglat.map((element)=> {
-        setLatitude(element.lat);
-        setLongitude(element.lon);
-      })
+
       var response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
       var jsonData2 = await response2.json();
       setWeather_news(jsonData2)
@@ -43,7 +43,7 @@ function Weather(props){
           
           <div className="input-group mb-3">
           <input type="text" className="form-control" placeholder="Enter Location" aria-label="Location" aria-describedby="button-addon2" value={text} onChange={handleOnChange}/>
-          <button className="btn btn-outline-secondary" onClick={getLongLat} type="button" id="button-addon2">Button</button>
+          <button className="btn btn-outline-secondary" onClick={getLongLat} type="button" id="button-addon2">Weather?</button>
           </div>
           <p className="card-text">Current Temprature: {weather_news !== null && weather_news.current_weather.temperature}</p>
           <p className="card-text">Today's Date: {weather_news !== null && weather_news.current_weather.time}</p>
