@@ -22,15 +22,10 @@ function Navbar(props) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-          <li><Link className="nav-link active" aria-current="page" to="/form-news">
-              Form News
-            </Link></li>
-            <li><Link className="nav-link" to="/image">
-              Slider
-            </Link></li>
-            <li><Link className="nav-link" to="/quote">
-              Random Quote
-            </Link></li>
+          <li><Link className="nav-link active" aria-current="page" to="/form-news">Form News</Link></li>
+          <li><Link className="nav-link" to="/image">Slider</Link></li>
+          <li><Link className="nav-link" to="/quote">Random Quote</Link></li>
+          <li><Link className="nav-link" to="/video">Video Player</Link></li>
           </div>
         </div>
         <form className="d-flex" role="search">

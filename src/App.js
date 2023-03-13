@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { Route, Routes } from 'react-router';
 import ImageSlider from './components/ImageCarousel/ImageSlider';
 import RandomQuote from './components/Quotes/RandomQuote';
+import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/form-news" element={<><Grid/><Footer/></>} />
         <Route path="/image" element={<ImageSlider/>} />
         <Route path="/quote" element={<RandomQuote/>} />
+        <Route path="/video" element={<VideoPlayer/>} />
     </Routes>
     </>
   );
