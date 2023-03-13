@@ -17,12 +17,13 @@ function App() {
     <Navbar/>
     <Routes>
         <Route path="/" element={<div className='container d-flex justify-content-center'><h1>Homepage</h1></div>} />
-        <Route path="/form-news" element={<><Grid/><Footer/></>} />
+        <Route path="/form-news" element={<><Grid/></>} />
         <Route path="/image" element={<ImageSlider/>} />
         <Route path="/quote" element={<RandomQuote/>} />
         <Route path="/video" element={<VideoPlayer/>} />
         <Route path="/bmi" element={<Bmi/>} />
     </Routes>
+    <Footer/>
     </>
   );
 }

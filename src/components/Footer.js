@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="container my-5">
+    <div className="container my-5" style={{ paddingBottom:'1px', position:'absolute', left:0, bottom:0, right:0 }}>
       <footer
         className="text-center text-lg-start"
         style={{backgroundColor: '#2E2EFE'}}>
