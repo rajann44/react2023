@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function Bmi(){
 
@@ -13,11 +13,10 @@ export default function Bmi(){
         setHeight(event.target.value);
       }
 
-    function calBMI(){
-      var h = height*0.01;
-      var hq = h*h;
-      return (weight / hq)
-    }
+    const output = useMemo(() => {
+        const calculatedHeight = height / 100;
+        return (weight / (calculatedHeight * calculatedHeight)).toFixed(1);
+      }, [weight, height]);
 
     return(
     <div className="container-sm my-3">
@@ -28,7 +27,7 @@ export default function Bmi(){
         <input type="range" onChange={currentHeight} min="140" max="300" step="1" value={height} className="form-range" id="customHeight"></input>
 
         <div className="bmi">Your BMI is: {calBMI()}</div>
-        <div className="d-flex justify-content-center">{parseInt(calBMI())>25?'You are FAT AF....':''}</div>
+        <div className="d-flex justify-content-center">{output>25?'You are FAT AF....':''}</div>
     </div>
     );
 
