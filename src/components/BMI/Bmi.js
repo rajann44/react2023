@@ -26,7 +26,7 @@ export default function Bmi(){
         <label htmlFor="customRange1" className="form-label">Height: {height} cm and {height*0.01}m</label>
         <input type="range" onChange={currentHeight} min="140" max="300" step="1" value={height} className="form-range" id="customHeight"></input>
 
-        <div className="bmi">Your BMI is: {calBMI()}</div>
+        <div className="bmi">Your BMI is: {output}</div>
         <div className="d-flex justify-content-center">{output>25?'You are FAT AF....':''}</div>
     </div>
     );
