@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router';
 import ImageSlider from './components/ImageCarousel/ImageSlider';
 import RandomQuote from './components/Quotes/RandomQuote';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
+import Bmi from './components/BMI/Bmi';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/image" element={<ImageSlider/>} />
         <Route path="/quote" element={<RandomQuote/>} />
         <Route path="/video" element={<VideoPlayer/>} />
+        <Route path="/bmi" element={<Bmi/>} />
     </Routes>
     </>
   );
