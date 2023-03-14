@@ -27,6 +27,7 @@ function Navbar(props) {
           <li><Link className="nav-link" to="/quote">Random Quote</Link></li>
           <li><Link className="nav-link" to="/video">Video Player</Link></li>
           <li><Link className="nav-link" to="/bmi">BMI</Link></li>
+          <li><Link className="nav-link" to="/movie">Movie</Link></li>
           </div>
         </div>
         <form className="d-flex" role="search">
