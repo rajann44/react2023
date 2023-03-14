@@ -18,10 +18,10 @@ export default function HorizontalDiv(props){
       };
 
     return(<div>
-        <div class="hr-theme-slash-2" style={styles.hr_theme_slash_2}>
-        <div class="hr-line" style={styles.hr_line}></div>
-        <div class="hr-text" style={styles.hr_text}><b>{props.title}</b></div>
-        <div class="hr-line" style={styles.hr_line}></div>
+        <div className="hr-theme-slash-2" style={styles.hr_theme_slash_2}>
+        <div className="hr-line" style={styles.hr_line}></div>
+        <div className="hr-text" style={styles.hr_text}><b>{props.title}</b></div>
+        <div className="hr-line" style={styles.hr_line}></div>
         </div>
     </div>);
 }
