@@ -1,8 +1,8 @@
 import './App.css';
+import { Route, Routes } from 'react-router';
 import Navbar from './components/Navbar';
 import Grid from './components/Grid';
 import Footer from './components/Footer';
-import { Route, Routes } from 'react-router';
 import ImageSlider from './components/ImageCarousel/ImageSlider';
 import RandomQuote from './components/Quotes/RandomQuote';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
