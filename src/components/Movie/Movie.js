@@ -15,12 +15,8 @@ export default function Movie(){
 
     //useEffect Currently DONOT HAVE ANY EFFECT ON CODE LOLLL
     useEffect(() => {
-        // Remove below method call and add button click functionality
-        console.log('INSIDE MOVIE JS')
-        if(popularMovieData.length!==0){
-            console.log(popularMovieData)
-        }
-    }, [popularMovieData])
+        popularMovieDetail();
+    }, [])
 
     return(<div>
         <SearchMovie></SearchMovie>
@@ -28,8 +24,8 @@ export default function Movie(){
         <div className="container my-3 d-flex justify-content-center"><button type="button" className="btn btn-primary" onClick={popularMovieDetail}>GET Movie Data</button></div>
         {popularMovieData.length!==0 &&  <div className="row">
             {popularMovieData.slice(0, 4).map((singleMovie) => (
-            <div className="container col-md-3 d-flex justify-content-center my-3">
-            <div className="card" key={singleMovie.backdrop_path} style={{ width: '18rem', maxWidth: '70%'}}>
+            <div className="container col-md-3 d-flex justify-content-center my-3" key={singleMovie.backdrop_path}>
+            <div className="card" style={{ width: '18rem', maxWidth: '70%'}}>
                 <img src={'https://image.tmdb.org/t/p/original'+singleMovie.poster_path} className="card-img-top img-thumbnail" alt="..."/>
                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{singleMovie.vote_average}</span>
                 <div className="card-body">
