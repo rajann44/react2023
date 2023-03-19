@@ -26,7 +26,7 @@ function App() {
           }
         />
         <Route
-          path="/form-news"
+          path="/form-weather"
           element={
             <>
               <Grid />
