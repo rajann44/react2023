@@ -1,63 +1,46 @@
 import { useEffect, useState } from "react";
 import Search from "../comcomp/search";
+import ArticleList from "./articleList";
+import Widget from "./widget";
 
 export default function GNews() {
-  const [text, setText] = useState("");
+  const [newsObject, setNewsObject] = useState([]);
 
   useEffect(() => {
     console.log("In Effect");
+    getAndSetBusinessNews();
+    console.log(newsObject);
   }, []);
 
   const handleOnChange = (event) => {
-    setText(event.target.value);
+    //setText(event.target.value);
   };
 
   function handleOnClick() {
-    getWikiArticles(text);
+    //getBusinessNews(text);
   }
 
-  async function getWikiArticles(query) {
-    let url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${query}&format=json`;
+  async function getAndSetBusinessNews() {
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c`;
     let wikiResponse = await fetch(url);
     let parsedData = await wikiResponse.json();
-    console.log(parsedData);
+    setNewsObject(parsedData.articles);
+    console.log(parsedData.articles);
   }
 
   return (
-    <div className="container">
-      <Search
-        handleText={text}
-        handleOnChange={handleOnChange}
-        handleOnClick={() => handleOnClick()}
-      >
-        {" "}
-      </Search>
-      <div
-        className="card mb-3"
-        style={{ maxWidth: "55rem", marginTop: "0.50rem" }}
-      >
-        <div className="row g-0">
-          <div className="col-md-3">
-            <img
-              src="https://styles.redditmedia.com/t5_2th52/styles/communityIcon_c5f6mvu7s49a1.png"
-              className="img-fluid img-thumbnail"
-              style={{ height: "170px" }}
-              alt="..."
-            />
-          </div>
-          <div className="col-md-9">
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
+    <div className="container my-3">
+      <div class="row">
+        <div class="col-9">
+          <Search
+            //handleText={text}
+            handleOnChange={handleOnChange}
+            handleOnClick={() => handleOnClick()}
+          ></Search>
+          <ArticleList newsObjectList={newsObject}></ArticleList>
+        </div>
+        <div class="col-3">
+          <Widget></Widget>
         </div>
       </div>
     </div>

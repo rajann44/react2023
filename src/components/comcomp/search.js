@@ -1,6 +1,6 @@
 export default function Search({ handleText, handleOnChange, handleOnClick }) {
   return (
-    <div className="input-group mb-3 my-3 w-50">
+    <div className="input-group mb-3 w-100">
       <input
         type="text"
         className="form-control"
