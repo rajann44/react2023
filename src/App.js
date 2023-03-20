@@ -8,6 +8,7 @@ import RandomQuote from "./components/Quotes/RandomQuote";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 import Bmi from "./components/BMI/Bmi";
 import Movie from "./components/Movie/Movie";
+import GNews from "./components/news/googlenews";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/video" element={<VideoPlayer />} />
         <Route path="/bmi" element={<Bmi />} />
         <Route path="/movie" element={<Movie />} />
+        <Route path="/news" element={<GNews />} />
       </Routes>
       <Footer />
     </>

@@ -60,6 +60,11 @@ function Navbar(props) {
                 Movie
               </Link>
             </li>
+            <li>
+              <Link className="nav-link" to="/news">
+                News
+              </Link>
+            </li>
           </div>
         </div>
         <form className="d-flex" role="search">
