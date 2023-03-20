@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar(props) {
+function Navbar({ title }) {
   return (
     <nav
       className="navbar navbar-expand-lg bg-dark container"
@@ -10,7 +10,7 @@ function Navbar(props) {
       <div className="container-fluid">
         <li>
           <Link className="navbar-brand" to="/">
-            Navbar
+            {title}
           </Link>
         </li>
         <button

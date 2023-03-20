@@ -20,12 +20,13 @@ export default function ArticleList({ newsObjectList }) {
               <div className="col-md-9">
                 <div className="card-body">
                   <h5 className="card-title">
-                    {singleNews.title.slice(0, 60)}
+                    {singleNews.title.slice(0, 60)}..
                   </h5>
                   <p className="card-text">
                     {!singleNews.description
                       ? "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
                       : singleNews.description.slice(0, 160)}
+                    ..
                   </p>
                   <p className="card-text">
                     <small className="text-muted">

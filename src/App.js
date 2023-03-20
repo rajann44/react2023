@@ -16,7 +16,7 @@ function App() {
       {/*<Welcome name='Storage is still TODOOO' ></Welcome>
     <Form></Form>
     <Weather city="Sirsa"></Weather>*/}
-      <Navbar />
+      <Navbar title="Multi-Fun" />
       <Routes>
         <Route
           path="/"

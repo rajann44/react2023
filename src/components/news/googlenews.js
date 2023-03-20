@@ -4,11 +4,18 @@ import ArticleList from "./articleList";
 import Widget from "./widget";
 
 export default function GNews() {
+  const businessURL =
+    "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c";
+  const techURL =
+    "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c";
+
   const [newsObject, setNewsObject] = useState([]);
+  const [techObject, setTechObject] = useState([]);
 
   useEffect(() => {
     console.log("In Effect");
-    getAndSetBusinessNews();
+    getAndSetBusinessNews(businessURL);
+    getAndSetTech(techURL);
     console.log(newsObject);
   }, []);
 
@@ -20,18 +27,22 @@ export default function GNews() {
     //getBusinessNews(text);
   }
 
-  async function getAndSetBusinessNews() {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c`;
+  async function getAndSetBusinessNews(url) {
+    let wikiResponse = await fetch(url);
+    let parsedData = await wikiResponse.json();
+    setTechObject(parsedData.articles);
+  }
+
+  async function getAndSetTech(url) {
     let wikiResponse = await fetch(url);
     let parsedData = await wikiResponse.json();
     setNewsObject(parsedData.articles);
-    console.log(parsedData.articles);
   }
 
   return (
     <div className="container my-3">
-      <div class="row">
-        <div class="col-9">
+      <div className="row">
+        <div className="col-9">
           <Search
             //handleText={text}
             handleOnChange={handleOnChange}
@@ -39,8 +50,8 @@ export default function GNews() {
           ></Search>
           <ArticleList newsObjectList={newsObject}></ArticleList>
         </div>
-        <div class="col-3">
-          <Widget></Widget>
+        <div className="col-3">
+          <Widget newsObjectList={techObject}></Widget>
         </div>
       </div>
     </div>

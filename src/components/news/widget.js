@@ -1,20 +1,30 @@
-export default function Widget() {
+export default function Widget({ newsObjectList }) {
   return (
     <>
-      <div class="card">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/8/8a/OpenMoji-black_1F4F0.svg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
-        </div>
-      </div>
+      <h6 class="text-uppercase">Latest Tech News</h6>
+      <hr class="solid"></hr>
+      {newsObjectList.articles !== null &&
+        newsObjectList.slice(0, 2).map((singleNews) => (
+          <div className="card my-3">
+            <img
+              src={
+                !singleNews.urlToImage
+                  ? "https://upload.wikimedia.org/wikipedia/commons/8/8a/OpenMoji-black_1F4F0.svg"
+                  : singleNews.urlToImage
+              }
+              className="card-img-top"
+              alt="..."
+            />
+            <div className="card-body">
+              <h5 className="card-title">{singleNews.title.slice(0, 50)}</h5>
+              <p className="card-text">
+                {!singleNews.description
+                  ? "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                  : singleNews.description.slice(0, 80)}
+              </p>
+            </div>
+          </div>
+        ))}
     </>
   );
 }
