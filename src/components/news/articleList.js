@@ -1,11 +1,31 @@
-export default function ArticleList({ newsObjectList, mouseStyle }) {
+import { useState } from "react";
+
+export default function ArticleList({ newsObjectList }) {
+  const [hoverIndex, setHoverIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    console.log("Mouse Enter");
+    setHoverIndex(index);
+  };
+  const handleMouseLeave = () => {
+    console.log("Mouse Leave");
+    setHoverIndex(null);
+  };
+
   return (
     <>
       {newsObjectList.articles !== null &&
         newsObjectList.slice(0, 5).map((singleNews, index) => (
           <div
-            className={`card mb-3 border-2 rounded-0 ${mouseStyle}`}
+            className={`card mb-3 border-2 rounded-0 hover-overlay ${
+              index === hoverIndex
+                ? "bg-success p-2 text-dark bg-opacity-25"
+                : ""
+            }`}
             key={index}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(0)}
+            style={{ transform: index === hoverIndex ? "scale(1.04)" : "" }}
           >
             <div className="row g-0">
               <div className="col-md-3">
