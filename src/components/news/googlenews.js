@@ -30,11 +30,11 @@ export default function GNews() {
 
   const handleMouseEnter = () => {
     setMyStyle("bg-success p-2 text-dark bg-opacity-25");
-    console.log("E");
+    console.log("Mouse Enter");
   };
   const handleMouseLeave = () => {
     setMyStyle("");
-    console.log("L");
+    console.log("Mouse Leave");
   };
 
   async function getAndSetBusinessNews(url) {

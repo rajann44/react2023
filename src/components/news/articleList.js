@@ -2,10 +2,10 @@ export default function ArticleList({ newsObjectList, mouseStyle }) {
   return (
     <>
       {newsObjectList.articles !== null &&
-        newsObjectList.slice(0, 5).map((singleNews) => (
+        newsObjectList.slice(0, 5).map((singleNews, index) => (
           <div
             className={`card mb-3 border-2 rounded-0 ${mouseStyle}`}
-            key={singleNews.source.urlToImage}
+            key={index}
           >
             <div className="row g-0">
               <div className="col-md-3">
