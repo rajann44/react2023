@@ -11,6 +11,7 @@ export default function GNews() {
 
   const [newsObject, setNewsObject] = useState([]);
   const [techObject, setTechObject] = useState([]);
+  const [myStyle, setMyStyle] = useState("");
 
   useEffect(() => {
     console.log("In Effect");
@@ -26,6 +27,15 @@ export default function GNews() {
   function handleOnClick() {
     //getBusinessNews(text);
   }
+
+  const handleMouseEnter = () => {
+    setMyStyle("bg-success p-2 text-dark bg-opacity-25");
+    console.log("E");
+  };
+  const handleMouseLeave = () => {
+    setMyStyle("");
+    console.log("L");
+  };
 
   async function getAndSetBusinessNews(url) {
     let wikiResponse = await fetch(url);
@@ -48,7 +58,12 @@ export default function GNews() {
             handleOnChange={handleOnChange}
             handleOnClick={() => handleOnClick()}
           ></Search>
-          <ArticleList newsObjectList={newsObject}></ArticleList>
+          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <ArticleList
+              newsObjectList={newsObject}
+              mouseStyle={myStyle}
+            ></ArticleList>
+          </div>
         </div>
         <div className="col-3">
           <Widget newsObjectList={techObject}></Widget>

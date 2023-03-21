@@ -1,9 +1,12 @@
-export default function ArticleList({ newsObjectList }) {
+export default function ArticleList({ newsObjectList, mouseStyle }) {
   return (
     <>
       {newsObjectList.articles !== null &&
         newsObjectList.slice(0, 5).map((singleNews) => (
-          <div className="card mb-3 border-2 rounded-0">
+          <div
+            className={`card mb-3 border-2 rounded-0 ${mouseStyle}`}
+            key={singleNews.source.urlToImage}
+          >
             <div className="row g-0">
               <div className="col-md-3">
                 <img

@@ -1,11 +1,11 @@
 export default function Widget({ newsObjectList }) {
   return (
     <>
-      <h6 class="text-uppercase">Latest Tech News</h6>
-      <hr class="solid"></hr>
+      <h6 className="text-uppercase">Latest Tech News</h6>
+      <hr className="solid"></hr>
       {newsObjectList.articles !== null &&
         newsObjectList.slice(0, 2).map((singleNews) => (
-          <div className="card my-3">
+          <div className="card my-3" key={singleNews.source.urlToImage}>
             <img
               src={
                 !singleNews.urlToImage
